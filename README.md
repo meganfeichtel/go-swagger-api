@@ -11,12 +11,12 @@ $ brew install go-swagger
 
 ## Generating the Spec
 ```bash
-$ swagger generate spec -i </> -m -o </>
+$ swagger generate spec -i docs/swagger.yaml -m -o docs/swagger.json
 ```
 
 ## Serving the Specification Locally
 ```bash
-$ swagger serve -F=swagger </>
+$ swagger serve -F=swagger docs/swagger.json
 ```
 
 
