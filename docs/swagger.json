@@ -1,0 +1,79 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "This is an example sepecification of how to use GoSwagger to docment an API written in GoLang\n\nThere are currently no terms of service, so use at your owk risk.",
+    "title": "GoSwagger Example API Specification",
+    "contact": {
+      "name": "Your Name Here",
+      "email": "yname@redventures.com"
+    },
+    "version": "1.1.0"
+  },
+  "host": "localhost",
+  "basePath": "/",
+  "paths": {
+    "/": {
+      "get": {
+        "description": "Get the home page of the todo lists",
+        "tags": [
+          "Index"
+        ],
+        "operationId": "getIndex",
+        "responses": {
+          "200": {
+            "description": "Get the homepage of the todo lists"
+          }
+        }
+      }
+    },
+    "/todo": {
+      "get": {
+        "description": "Get the list of todo items stored in the database",
+        "tags": [
+          "TodoIndex"
+        ],
+        "operationId": "getTodoIndex",
+        "responses": {
+          "200": {
+            "description": "Get the list of todo items stored in the database"
+          }
+        }
+      },
+      "post": {
+        "description": "Create a new todo item",
+        "tags": [
+          "TodoCreate"
+        ],
+        "operationId": "postTodoCreate",
+        "responses": {
+          "200": {
+            "description": "Create a new todo item"
+          }
+        }
+      }
+    },
+    "/todo/{todoId}": {
+      "get": {
+        "description": "Get the specified todo item",
+        "tags": [
+          "TodoShow"
+        ],
+        "operationId": "getTodoShow",
+        "responses": {
+          "200": {
+            "description": "Get the specified todo item"
+          }
+        }
+      }
+    }
+  }
+}

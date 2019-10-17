@@ -1,8 +1,8 @@
-// GoSwagger Example API Specification
+// GoSwagger Example API Specification for ToDo List
 //
 // This is an example sepecification of how to use GoSwagger to docment an API written in GoLang
 //
-// There are currently no terms of service, so use at your owk risk.
+// There are currently no terms of service, so use at your own risk.
 //
 // Terms of Service:
 //
@@ -10,7 +10,7 @@
 //     Host: localhost
 //     BasePath: /
 //     Version: 1.1.0
-//     Contact: Your Name Here <yname@redventures.com>
+//     Contact: meganfeichtel in an issue
 //
 //     Consumes:
 //     - application/json
