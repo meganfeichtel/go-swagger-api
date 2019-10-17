@@ -1,0 +1,204 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "This is an example sepecification of how to use GoSwagger to docment an API written in GoLang\n\nThere are currently no terms of service, so use at your owk risk.",
+    "title": "GoSwagger Example API Specification",
+    "contact": {
+      "name": "Your Name Here",
+      "email": "yname@redventures.com"
+    },
+    "version": "1.1.0"
+  },
+  "host": "localhost",
+  "basePath": "/",
+  "paths": {
+    "/examples": {
+      "get": {
+        "description": "Retrieve a list of examples",
+        "tags": [
+          "Examples"
+        ],
+        "operationId": "getExamples",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Authorization"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Examples",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Example"
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/definitions/RespondError"
+          }
+        }
+      },
+      "post": {
+        "description": "Create an Example",
+        "tags": [
+          "Examples"
+        ],
+        "operationId": "postExample",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Authorization"
+          },
+          {
+            "$ref": "#/parameters/PostEmployeeRequestPayload"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Example Created Successfully"
+          },
+          "default": {
+            "$ref": "#/definitions/RespondError"
+          }
+        }
+      }
+    },
+    "/examples/{exampleID}": {
+      "get": {
+        "description": "Retrieve a specific example",
+        "tags": [
+          "Examples"
+        ],
+        "operationId": "getExample",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Authorization"
+          },
+          {
+            "$ref": "#/parameters/ExampleIDParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Example"
+            }
+          },
+          "default": {
+            "$ref": "#/definitions/RespondError"
+          }
+        }
+      },
+      "patch": {
+        "description": "Update an Example",
+        "tags": [
+          "Examples"
+        ],
+        "operationId": "patchExample",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Authorization"
+          },
+          {
+            "$ref": "#/parameters/ExampleIDParam"
+          },
+          {
+            "$ref": "#/parameters/PatchExampleRequestPayload"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Patched Example",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Example"
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/definitions/RespondError"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Example": {
+      "description": "Represents a example",
+      "properties": {
+        "dateAdded": {
+          "type": "string",
+          "format": "date"
+        },
+        "dateTimeAdded": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "exampleID": {
+          "type": "integer"
+        },
+        "exampleString": {
+          "type": "string"
+        },
+        "lastUpdatedDateTime": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "RespondError": {
+      "description": "Model used for responding with an error",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "message": "This is a bad request"
+      }
+    }
+  },
+  "parameters": {
+    "Authorization": {
+      "type": "string",
+      "description": "JWT token in `Bearer token` format, where `token` is your JWT token.",
+      "name": "Authorization",
+      "in": "header",
+      "required": true
+    },
+    "ExampleIDParam": {
+      "type": "integer",
+      "description": "ID of the example on which to perform the operation",
+      "name": "exampleID",
+      "in": "path"
+    },
+    "PatchExampleRequestPayload": {
+      "description": "Body of the PATCH request",
+      "name": "body",
+      "in": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/Example"
+      }
+    },
+    "PostEmployeeRequestPayload": {
+      "description": "Body of the POST request",
+      "name": "body",
+      "in": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/Example"
+      }
+    }
+  }
+}
