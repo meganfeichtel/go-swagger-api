@@ -11,7 +11,7 @@
 //     Host: localhost
 //     BasePath: /
 //     Version: 1.1.0
-//     Contact: meganfeichtel in an issue
+//     Contact: Megan Feichtel <pleasedontemailme@fake.co>
 //
 //     Consumes:
 //     - application/json

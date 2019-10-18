@@ -13,7 +13,7 @@ type Routes []Route
 
 var routes = Routes{
 
-	// swagger:operation GET / Index getIndex
+	// swagger:operation GET / root getIndex
 	//
 	// Get the home page of the todo lists
 	//
@@ -28,7 +28,7 @@ var routes = Routes{
 		Index,
 	},
 
-	// swagger:operation GET /todo TodoIndex getTodoIndex
+	// swagger:operation GET /todo todo getTodoIndex
 	//
 	// Get the list of todo items stored in the database
 	//
@@ -43,14 +43,20 @@ var routes = Routes{
 		TodoIndex,
 	},
 
-	// swagger:operation GET /todo/{todoId} TodoShow getTodoShow
-	//
-	// Get the specified todo item
-	//
+	// swagger:operation GET /todo/{todoId} todo getTodoShow
 	// ---
+	// summary: List the specified todo item.
+	// description: List the specified todo item
+	// parameters:
+	// - name: todoId
+	//   in: path
+	//   description: id of todo list item
+	//   type: string
+	//   required: true
 	// responses:
 	//   200:
 	//     description: Get the specified todo item
+
 	Route{
 		"TodoShow",
 		"GET",
@@ -58,7 +64,7 @@ var routes = Routes{
 		TodoShow,
 	},
 
-	// swagger:operation POST /todo TodoCreate postTodoCreate
+	// swagger:operation POST /todo todo postTodoCreate
 	//
 	// Create a new todo item
 	//

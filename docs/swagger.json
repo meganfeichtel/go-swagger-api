@@ -10,11 +10,11 @@
   ],
   "swagger": "2.0",
   "info": {
-    "description": "This is an example sepecification of how to use GoSwagger to docment an API written in GoLang\n\nThere are currently no terms of service, so use at your owk risk.",
-    "title": "GoSwagger Example API Specification",
+    "description": "This is an example sepecification of how to use GoSwagger to docment an API written in GoLang\nimplemnting the API example setup here: https://thenewstack.io/make-a-restful-json-api-go/\n\nThere are currently no terms of service, so use at your own risk.",
+    "title": "GoSwagger Example API Specification for ToDo List",
     "contact": {
-      "name": "Your Name Here",
-      "email": "yname@redventures.com"
+      "name": "Megan Feichtel",
+      "email": "pleasedontemailme@fake.co"
     },
     "version": "1.1.0"
   },
@@ -25,7 +25,7 @@
       "get": {
         "description": "Get the home page of the todo lists",
         "tags": [
-          "Index"
+          "root"
         ],
         "operationId": "getIndex",
         "responses": {
@@ -39,7 +39,7 @@
       "get": {
         "description": "Get the list of todo items stored in the database",
         "tags": [
-          "TodoIndex"
+          "todo"
         ],
         "operationId": "getTodoIndex",
         "responses": {
@@ -51,7 +51,7 @@
       "post": {
         "description": "Create a new todo item",
         "tags": [
-          "TodoCreate"
+          "todo"
         ],
         "operationId": "postTodoCreate",
         "responses": {
@@ -63,11 +63,21 @@
     },
     "/todo/{todoId}": {
       "get": {
-        "description": "Get the specified todo item",
+        "description": "List the specified todo item",
         "tags": [
-          "TodoShow"
+          "todo"
         ],
+        "summary": "List the specified todo item.",
         "operationId": "getTodoShow",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "id of todo list item",
+            "name": "todoId",
+            "in": "path",
+            "required": true
+          }
+        ],
         "responses": {
           "200": {
             "description": "Get the specified todo item"
